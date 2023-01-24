@@ -17,6 +17,7 @@
         "@popperjs/core": "^2.11.6",
         "animated-scroll-to": "^2.3.0",
         "bootstrap": "^5.2.3",
-        "jquery": "^3.6.3"
+        "jquery": "^3.6.3",
+        "vanilla-tilt": "^1.8.0"
     }
 }

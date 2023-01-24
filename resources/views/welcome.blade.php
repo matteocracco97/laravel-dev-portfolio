@@ -46,9 +46,8 @@
         <div class="row mt-5">
           <div class="col-sm-3">
             <h1>Matteo Cracco Portfolio</h1>
-        
-
           </div>
+        </div>  
         <div class="row">
           <div class="col-sm-12">
             <span>
@@ -62,26 +61,34 @@
               <li>[HTML5]</li>
               <li>[CSS3.0] & [SASS]</li>
               <li>[SQL/MARIADB/MYSQL/SQLSERVER/FIREBIRD/POSTGRESQL]</li>
-            </ul> 
-                    
+            </ul>     
           </div>
         </div> 
-        </div>
-          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
+        <div class="row">
+          <!-- first post -->
+          <div data-tilt data-tilt-scale="1.1" class="card your-element text-white bg-dark " style="width: 18rem;">
+            <img class="card-img-top" src="https://www.spegea.it/wp-content/uploads/2020/11/projectmanagement.jpg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Dark card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
         </div>
-<script>
+        <!-- end of post -->    
+      </div>
+
+<script type="module">
     // Scrolls page both horizontally and vertically to ".my-element"
     // animateScrollTo(document.querySelector('.my-element'));
     $(function() {
+
       $("#dropDownMenu li").each(function(i) {
         $(this).delay(100 * i).fadeIn(500);
       });
+
+      VanillaTilt.init(document.querySelector(".your-element"), {
+      max: 25,
+      speed: 400,
+    });
 });
 </script>
 
