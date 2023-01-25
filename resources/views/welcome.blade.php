@@ -18,8 +18,8 @@
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
     </head>
-    <body class="antialiased">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <body id="body" class="antialiased">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-none">
             <a class="navbar-brand" href="#">Navbar w/ text</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -41,55 +41,72 @@
               </span>
             </div>
           </nav>
+          <style>
 
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-sm-3">
-            <h1>Matteo Cracco Portfolio</h1>
-          </div>
-        </div>  
-        <div class="row">
-          <div class="col-sm-12">
-            <span>
-              Full stack developer born In Italy. <br>
-              Born in 1997 I mainly work with:
-            </span>
-            <ul id="dropDownMenu" class="text-white fw-bold ">
-              <li>[C#]</li>
-              <li>[Javascript/JQUERY/AJAX]</li>
-              <li>[PHP/LARAVEL]</li>
-              <li>[HTML5]</li>
-              <li>[CSS3.0] & [SASS]</li>
-              <li>[SQL/MARIADB/MYSQL/SQLSERVER/FIREBIRD/POSTGRESQL]</li>
-            </ul>     
-          </div>
-        </div> 
-        <div class="row">
-          <!-- first post -->
-          <div data-tilt data-tilt-scale="1.1" class="card your-element text-white bg-dark " style="width: 18rem;">
-            <img class="card-img-top" src="https://www.spegea.it/wp-content/uploads/2020/11/projectmanagement.jpg" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+            </style>
+          <div id="wrap">
+            <section id="section_1" class="reveal active">
+              <div class="pt-10 pb-4 pb-md-7 d-flex flex-column flex-items-center mt-4 mt-lg-9 flex-lg-column text-center">
+                <h1 class="h1-mktg mx-auto col-10-max text-white">Matteo Cracco portfolio</h1>
+                <p class="f3-mktg col-7-max mx-auto mt-4 muted-text">
+                  Ciao, sono matteo! Sono un full stack developer con una profonda esperienza nello sviluppo web e destkop. 
+                  I linguaggi principali nel mio stack tecnologico sono per la parte Web (JavaScript/Jquery/Ajax, Vue.js, HTML5, CSS3.0/SCSS, LARAVEL9.0/PHP8.0, Blazor, SQL/MariaDB/MySQL/SQL Server/PostgreSQL) mentre per la parte desktop (C#).
+                </p>
+              </div>
+            </section>
+            <section id="section_2" class="reveal">
+              <div class="pt-10 pb-4 pb-md-7 d-flex flex-column flex-items-center mt-4 mt-lg-9 flex-lg-column text-center">
+                <h1 class="h1-mktg mx-auto col-10-max text-white">Matteo Cracco portfolio</h1>
+                <p class="f3-mktg col-7-max mx-auto mt-4 muted-text">
+                  Ciao, sono matteo! Sono un full stack developer con una profonda esperienza nello sviluppo web e destkop. 
+                  I linguaggi principali nel mio stack tecnologico sono per la parte Web (JavaScript/Jquery/Ajax, Vue.js, HTML5, CSS3.0/SCSS, LARAVEL9.0/PHP8.0, Blazor, SQL/MariaDB/MySQL/SQL Server/PostgreSQL) mentre per la parte desktop (C#).
+                </p>
+              </div>
+            </section>
+            <section id="section_3" class="reveal">
+              <div class="row">
+                <div data-tilt data-tilt-scale="1.1" class="card your-element text-white bg-dark " style="width: 18rem;">
+                  <img class="card-img-top" src="https://www.spegea.it/wp-content/uploads/2020/11/projectmanagement.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
         </div>
-        <!-- end of post -->    
-      </div>
+
+
 
 <script type="module">
     // Scrolls page both horizontally and vertically to ".my-element"
     // animateScrollTo(document.querySelector('.my-element'));
     $(function() {
+      
+      var fps = new FullPageScroll('wrap');
 
-      $("#dropDownMenu li").each(function(i) {
-        $(this).delay(100 * i).fadeIn(500);
-      });
+      // Author: Matteo Cracco
+      // Manage animations on slide
+      fps.onslide = function(e) {
+        console.log("Slide "+(e.target.currentSlide+1)+" of "+e.target.slides.length);
 
+        $("section").each(function() {
+          $(this).removeClass("active");
+        });
+
+        let number = Number(e.target.currentSlide) + 1;
+        let id = "#section_" + number;
+        $(id).addClass("active");
+      }
+
+      // Manage cards
       VanillaTilt.init(document.querySelector(".your-element"), {
       max: 25,
       speed: 400,
     });
-});
+
+  });
+
+
 </script>
 
     </body>
